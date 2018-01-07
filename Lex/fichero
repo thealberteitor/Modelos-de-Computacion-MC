@@ -1,0 +1,15 @@
+Las peticiones HTTP tienen los siguientes campos:
+
+Método:     		GET, DELETE, POST, OPTIONS, HEAD y PUT
+Host:      		cualquier URL
+Dirección del server:	cualquier dirección
+Navegador:  		navegador usado en cuestión
+
+
+Ejemplo:
+
+GET /direccion/pagina.html 
+Host: www.ejemplo.edu
+User-agent: Mozilla
+
+/*datos*/

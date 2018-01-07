@@ -1,0 +1,242 @@
+\input{preambuloSimple.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DEL ALUMNO
+%----------------------------------------------------------------------------------------
+
+\title{	
+\normalfont \normalsize 
+\textsc{\textbf{Modelos de computación (2017-2018)} \\ Doble Grado en Ingeniería Informática y Matemáticas \\ Universidad de Granada} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Relación de problemas I \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Alberto Jesús Durán López} % Nombre y apellidos
+
+\date{\normalsize\today} % Incluye la fecha actual
+
+%----------------------------------------------------------------------------------------
+% DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Muestra el Título
+
+\newpage %inserta un salto de página
+
+\tableofcontents % para generar el índice de contenidos
+
+%\listoffigures
+
+% \listoftables
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Ejercicio 13}
+\begin{itemize}
+	\item \textbf{Dados dos homomorfismos f: A* $\rightarrow$ B* , g: A* $\rightarrow$ B*, se dice que son iguales si f(x)=g(x), $\forall$x $\in$ A*. ¿Existe un procedimiento algorítmico para comprobar si dos homomorfismos son iguales?}
+\end{itemize} 
+
+Nota: 
+Si x es un elemento cualquiera de un grupo, f es un homomorfismo y n es un entero mayor o igual que cero, por la definición de homomorfismo tenemos que: \[ f(x^n) = f(x)^n \] \\
+Tampoco es difícil ver que: \[ f(x^{-1})=f(x)^{-1} \] \\
+Si n es un entero negativo, entonces -n es un entero positivo por lo que aplicando el resultado anterior, se tiene \[ f(x^{n})=f((x^{-1})^{-n})=f(x^{-1})^{-n}=f(x)^{(-1)(-n)}=f(x)^n\] \\ 
+En consecuencia, \[ f(x^{n})=f(x)^{n} , \forall n \in \mathbb{Z} \] \\
+
+
+\horrule{0.5pt} 
+
+
+Sabemos que para que  f: G $\rightarrow$ {G'} y  g: G$\rightarrow${G'} sean iguales, $\forall${y}$\in${G} ,  f(y)=g(y). 
+Tenemos que si y $\in$ {G}  entonces:
+\[y=x_1^{k_1}\cdot ... \cdot x_n^{k_n}\] para algunos \[k_1,...,k_n \in \mathbb{Z}\] \\
+Esto nos garantiza que: 
+\begin{center}
+	\[f(y)=f(x_1^{k_1}\cdot ... \cdot x_n^{k_n})=f(x_1^{k_1})\cdot ...\cdot  f(x_n^{k_n})= \\ =f(x_1)^{k_1}\cdot ...\cdot f(x_n)^{k_n}= g(x_1)^{k_1}\cdot ...\cdot g(x_n)^{k_n} =  g(x_1^{k_1})\cdot ...\cdot g(x_n^{k_n}) = g(x_1^{k_1}\cdot ... \cdot x_n^{k_n}) = g(y)\].
+	
+\end{center}
+
+
+
+
+
+\newpage
+\section{Ejercicio 16}
+
+\begin{itemize}
+	\item \textbf{Dada la gramática \\
+		G=(\{S,A\} , \{a,b\} , P, S $\rightarrow$ abAS , abA $\rightarrow$ baab , S $\rightarrow$ a , A $\rightarrow$ b).
+		 \\ Determinar el lenguaje que genera.} 
+\end{itemize}
+
+Observando las reglas de producción de P, podemos darnos cuenta que siempre vamos a llegar a una palabra terminada en 'a', es decir: \\
+
+S $\rightarrow$ a \\
+S $\rightarrow$ abAS $\rightarrow$ abba \\
+S $\rightarrow$ abAa $\rightarrow$ baaba \\
+S $\rightarrow$ abAabAS $\rightarrow$ ... $\rightarrow$ ... a \\ \\
+
+Por tanto: 
+\begin{center}
+	
+	L = $\left\lbrace u \cdot a: u \in A^* \right\rbrace$
+\end{center}
+
+
+
+
+\newpage
+\section{Ejercicio 17}
+\begin{itemize}
+	\item \textbf{Sea la gramática G = (V,T,P,S) donde: \\
+		-V = \{<número>, <dígito>\} \\
+		-T = \{0,1,2,3,4,5,6,7,8,9\} \\
+		-S = < número> \\
+		-Las reglas de producción de P son:
+		\begin{center}
+			<número> $\rightarrow$ <número><dígito> \\
+			<número> $\rightarrow$ <dígito> \\
+			<dígito> $\rightarrow$ 0|1|2|3|4|5|6|7|8|9
+		\end{center}
+		Determinar el lenguaje que genera.
+	}	
+\end{itemize}
+
+Repasaremos unas nociones básicas antes de seguir con el ejercicio: \\
+
+-V es un alfabeto, llamado variables o símbolos no terminales. Sus elementos se representan con letras mayúsculas. \\
+-T son los símbolos terminales, se representan con letras minúsculas \\
+S es el símbolo de partida \\
+
+Además, hacemos un cambio de notación: \\
+\begin{center}
+	S = <número> \\
+	A = <dígito> \\
+	a $\in \left[0,9\right]$
+\end{center}
+
+Resultando: \\
+\begin{center}
+	S $\rightarrow$ SA \\
+	S $\rightarrow$ A \\
+	A $\rightarrow$ 0|1|2|3|4|5|6|7|8|9 \\
+\end{center}
+
+Podemos observar que: \\
+
+S $\rightarrow$ SA $\rightarrow$ SAA $\rightarrow$ ... $\rightarrow$ ... aaaa \\
+S $\rightarrow$ SA $\rightarrow$ SAA $\rightarrow$ Aaa $\rightarrow$ aaa \\
+S $\rightarrow$ A $\rightarrow$ a \\
+
+Por tanto, todas las palabras que se pueden formar están formados por números a partir del 0 en adelante, es decir, el lenguaje generado por esta gramática es:
+
+\begin{center}
+	
+	L = $\left\lbrace n: n \in \mathbb{Z}^+ \right\rbrace$
+\end{center}
+
+
+
+
+
+\newpage
+\section{Ejercicio 18}
+\begin{itemize}
+	\item \textbf{Sea la gramática G=($\left\lbrace A,S\right\rbrace$, $\left\lbrace a,b \right\rbrace$, S, P) donde las reglas de producción son:
+	\begin{center}
+		S $\rightarrow$ aS \\ S $\rightarrow$ aA \\ A $\rightarrow$ bA \\A $\rightarrow$ b
+	\end{center}
+	Determinar el lenguaje que genera.
+	 }
+\end{itemize}
+
+Observando las reglas de producción de la gramática, vemos que cada vez que tenemos una A, obtenemos una b por lo que siempre vamos a obtener palabras terminadas en 'b', es decir: \\
+
+S $\rightarrow$ aS $\rightarrow$ aaS $\rightarrow$ aaaS $\rightarrow$ ... $\rightarrow$ ... b \\
+S $\rightarrow$ aS $\rightarrow$ aaA $\rightarrow$ aabA $\rightarrow$ ... $\rightarrow$ ... b \\
+S $\rightarrow$ aS $\rightarrow$ aaA $\rightarrow$ aab\\
+S $\rightarrow$ aA $\rightarrow$ ab\\
+S $\rightarrow$ aA $\rightarrow$ abbA $\rightarrow$ ... b\\
+S $\rightarrow$ aA $\rightarrow$ abA $\rightarrow$ abb\\
+
+Por tanto: 
+\begin{center}
+	
+	L = $\left\lbrace u \cdot b: u \in A^* \right\rbrace$
+\end{center}
+
+
+
+
+\newpage
+\section{Ejercicio 19}
+\begin{itemize}
+	\item \textbf{Encontrar si es posible una gramática lineal por la derecha o una gramática independiente del contexto que genere el lenguaje L, en cada uno de los casos, supuesto que L $\subseteq$ $\left\lbrace{a,b,c}\right\rbrace$* y verifica: \\ \\
+	a) u $\in$ L sii verifica que u no contiene dos símbolos consecutivos \\
+	b) u $\in$ L sii verifica que u contiene dos símbolos b consecutivos \\
+	c) u $\in$ L sii verifica que contiene un número impar de símbolos c \\
+	d) u $\in$ L sii verifica que no contiene el mismo número de símbolos b que de símbolos c}
+\end{itemize}
+
+\begin{center}
+	a) Si se puede: \\
+	S $\rightarrow$ $\epsilon$ \\
+	S $\rightarrow$ cS \\
+	S $\rightarrow$ aS\\
+	S $\rightarrow$ bX\\
+	X $\rightarrow$ aS\\
+	X $\rightarrow$ $\epsilon$ \\
+	X $\rightarrow$ cS \\
+\end{center} 
+
+\begin{center}
+	b) Si se puede: \\
+	S $\rightarrow$ aS \\
+	S $\rightarrow$ bS \\
+	S $\rightarrow$ cS \\
+	S $\rightarrow$ bX \\
+	X $\rightarrow$ bY \\
+	Y $\rightarrow$ aY \\
+	Y $\rightarrow$ bY \\
+	Y $\rightarrow$ cY \\
+	Y $\rightarrow$ $\epsilon$ \\
+\end{center}
+
+\begin{center}
+	c) Si se puede: \\
+	S $\rightarrow$ aS \\
+	S $\rightarrow$ bS \\
+	S $\rightarrow$ cX\\
+	X $\rightarrow$ aX\\
+	X $\rightarrow$ bX\\
+	X $\rightarrow$ $\epsilon$ \\
+	X $\rightarrow$ cS \\
+\end{center}
+
+\begin{center}
+	d) No se puede \\
+	
+\end{center}
+
+
+
+
+
+
+
+
+\end{document}

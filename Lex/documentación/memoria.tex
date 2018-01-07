@@ -1,0 +1,95 @@
+\input{preambuloSimple.tex}  % Configuración del documento
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS DE LOS ALUMNOS
+%----------------------------------------------------------------------------------------
+
+\title{	
+	\normalfont \normalsize 
+	\textsc{\textbf{Modelos de Computación (2017-2018)} \\ Doble Grado en Ingeniería Informática y Matemáticas \\ Universidad de Granada} \\ [25pt] 
+	\horrule{0.5pt} \\[0.4cm]
+	\huge PETICIÓN HTTP - LEX \\ 
+	\horrule{2pt} \\[0.5cm] 
+}
+
+\author{ Alberto Jesús Durán López} 
+\date{\normalsize\today}
+
+%----------------------------------------------------------------------------------------
+% DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	\maketitle       % título
+	\newpage 
+	\tableofcontents % índice
+	\newpage
+	
+	
+	
+	
+	\section{Introducción}
+	
+	Lex es una herramienta que nos permite ejecutar acciones tras la localización de cadenas de entrada que emparejan con expresiones regulares.
+	
+	En esta práctica, he realizado un programa en el que podemos comprobar si una petición HTTP es correcta. 	
+	
+	
+	\section{Petición HTTP}
+	
+	Antes de comenzar con la explicación del programa, introduciremos su funcionamiento.
+	A simple vista, el proceso de acceder una página web y navegar por ella es sencillo, sin embargo, resulta un proceso algo más complejo ya que se usan una serie de protocolos que hacen posible el acceso a la web requerida. 
+	Cuando un usuario desea iniciar una conexión  al servidor HTTP, deberá enviar una petición en el que indique que acción desea hacer. 
+	
+	Una petición HTTP está formada por una línea de solicitud, que incluye el método y la URL , y una serie de líneas de cabecera.
+	
+	\begin{itemize}
+		\item \textbf{Método:}
+		\begin{itemize}
+			\item GET: solicitud del un recurso.
+			\item HEAD: similar a GET pero sólo se devuelve la cabecera.
+			\item PUT: solicitud de sustituir la URL especificada con los datos incluídos.
+			\item POST: solicitid de acptar la URL especificada con los datos incluídos.
+			\item DELETE: solicitud de borrar la url especificada.
+			\item OPTIONS: solicitud de información.
+		\end{itemize}
+		
+		\item \textbf{Dirección-path}: /eltiempo/granada.html
+		\item \textbf{Host}: www.google.es / www.ugr.es
+		\item \textbf{Navegador usado}: Mozilla, chrome, safari...etc
+	\end{itemize}
+	
+	Además, en la petición se incluyen los datos, que al ser independientes en cada consulta no los hemos añadido.
+	
+	Acto seguido, el servidor HTTP contestará al cliente con un mensaje de éxito (enviando el objeto encapsulado) o con un mensaje de error (enviando su correspondiente código de error).
+	
+	
+	
+	\newpage
+	\section{Programa HTTP interactivo}
+	
+	Para cada campo de una petición HTTP (ya comentados anteriormente), he creado una expresión regular capaz de reconocerlos. Además, he añadido algunas expresiones regulares más para acceder a un ejemplo dado o para buscar información en google que pueda servir de ayuda.
+	
+	Una vez hayamos compilado y ejecutado el programa, se abrirá el menú siguiente:
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.8\textwidth]{1}
+		\caption{Inicio del programa}
+	\end{figure}
+	
+	Como podemos observar, simplemente bastará con pulsar la tecla '0', '1' o introducir la dirección 'www.google.es' en la terminal para acceder a la opción deseada. \\
+	
+	
+	Una vez hayamos introducido todos los campos correctamente, se mostrará el mensaje siguiente:
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.8\textwidth]{2}
+		\caption{Petición HTTP final}
+	\end{figure}
+	
+	Cabe destacar, que el programa no hace nada si se introduce algo que no coincida con alguna expresión regular y si introducimos una frase cuya expresión regular coincida con alguna que ya se ha introducido, se mostrará un mensaje de error.
+	
+	
+\end{document}
